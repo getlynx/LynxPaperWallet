@@ -53,7 +53,7 @@
 			"en": {
 				// javascript alerts or messages
 				"testneteditionactivated": "TESTNET EDITION ACTIVATED",
-				"paperlabelbitcoinaddress": "Bitcoin Address:",
+				"paperlabelbitcoinaddress": "Lynx Address:",
 				"paperlabelprivatekey": "Private Key:",
 				"paperlabelencryptedkey": "Encrypted Private Key (Password required)",
 				"bulkgeneratingaddresses": "Generating addresses... ",

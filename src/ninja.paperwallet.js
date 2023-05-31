@@ -20,7 +20,7 @@ ninja.wallets.paperwallet = {
 			document.getElementById("paperpassphrase").disabled = true;
 			document.getElementById("paperencrypt").checked = false;
 			ninja.wallets.paperwallet.encrypt = false;
-			ninja.wallets.paperwallet.build(pageBreakAt, pageBreakAt, !document.getElementById('paperart').checked, document.getElementById('paperpassphrase').value);
+			ninja.wallets.paperwallet.build(pageBreakAt, pageBreakAt, false, document.getElementById('paperpassphrase').value);
 		}
 	},
 

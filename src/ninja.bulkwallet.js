@@ -20,7 +20,7 @@
 		},
 
 		// use this function to bulk generate addresses
-		// rowLimit: number of Bitcoin Addresses to generate
+		// rowLimit: number of Lynx Addresses to generate
 		// startIndex: add this number to the row index for output purposes
 		// returns:
 		// index,bitcoinAddress,privateKeyWif
