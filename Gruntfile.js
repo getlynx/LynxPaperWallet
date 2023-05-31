@@ -6,8 +6,8 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		combine: {
 			single: {
-				input: "./src/bitaddress-ui.html",
-				output: "./bitaddress.org.html",
+				input: "./src/lynxaddress-ui.html",
+				output: "./lynxaddress.org.html",
 				tokens: [
 					{ token: "//biginteger.js", file: "./src/biginteger.js" },
 					{ token: "//bitcoinjs-lib.js", file: "./src/bitcoinjs-lib.js" },
@@ -65,7 +65,7 @@ module.exports = function (grunt) {
 					eol: 'lf'
 				},
 				files: {                // Files to process
-					'./bitaddress.org.html': ['./bitaddress.org.html']
+					'./lynxaddress.org.html': ['./lynxaddress.org.html']
 				}
 			}
 		}
