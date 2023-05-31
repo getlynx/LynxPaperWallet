@@ -9,9 +9,9 @@ hr { margin: 20px 0; border-top: 2px dashed #008000; }
 .keyarea { height: 110px; text-align: left; position: relative; padding: 5px; }
 .keyarea .public { float: left; }
 .keyarea .pubaddress { display: inline-block; height: 40px; padding: 0 0 0 10px; float: left; }
-.keyarea .privwif { margin: 0;  float: right; text-align: right; padding: 0 20px 0 0; position: relative; }
+.keyarea .privwif { margin: 0;  float: right; text-align: right; padding: 0 10px 0 0; position: relative; }
 .keyarea .label { font-weight: bold; }
-.keyarea .output { display: block; font-family: monospace; font-size: 1.25em; }
+.keyarea .output { display: block; font-family: monospace; font-size: 1em; }
 .keyarea .qrcode_public { display: inline-block; float: left; }
 .keyarea .qrcode_private { display: inline-block; position: relative; top: 28px; float: right; }
 .pubkeyhex { word-wrap: break-word; }
@@ -29,9 +29,9 @@ input[type=checkbox] { position: relative; z-index: 20; }
 #wallets { clear: both; }
 #btcaddress, #btcprivwif, #detailaddress, #detailaddresscomp, #detailprivwif, #detailprivwifcomp { font-family: monospace; font-size: 1.25em; }
 #seedpoolarea { display: none; }
-#seedpooldisplay {  font-family: monospace; font-size: 1em; width: 640px; padding: 15px 5px; word-wrap: break-word; }
+#seedpooldisplay {  font-family: monospace; font-size: 1em; padding: 15px 5px; word-wrap: break-word; }
 .seedpoint { width: 6px; height: 6px; display: block; border-radius: 3px; background-color: #009900; position: absolute; z-index: 10; }
-#generate { font-family: monospace; font-size: 1.25em; height: 305px; text-align: left; position: relative; padding: 5px; border: 2px solid #009900; clear: both; }
+#generate { font-family: monospace; font-size: 1.25em; height: 305px; text-align: center; position: relative; padding: 5px; border: 2px solid #009900; clear: both; }
 #generate span { padding: 5px 5px 0 5px; }
 #generatekeyinput { position: relative; z-index: 20; }
 #keyarea { height: 250px; }
@@ -42,12 +42,12 @@ input[type=checkbox] { position: relative; z-index: 20; }
 #keyarea .qrcode_private { float: none; display: block; top: 0; text-align: right; padding: 13px 11px 11px 11px; }
 #keyarea .private { width: 30%; display: table-cell; }
 #keyarea .public { width: 30%; display: table-cell; }
-#singlearea { font-size: 90%; }
-#singlesecret { position: relative; top: -130px; float: right; right: 200px; color: red; font-weight: bolder; font-size: 200%;  }
-#singleshare { position: relative; top: -110px; float: left; left: 160px; color: #009900; font-weight: bolder; font-size: 200%;  }
+#singlearea { font-size: 85%; }
+#singlesecret { position: relative; top: -130px; float: right; right: 200px; color: red; font-weight: bolder; font-size: 150%;  }
+#singleshare { position: relative; top: -110px; float: left; left: 160px; color: #009900; font-weight: bolder; font-size: 150%;  }
 #singlesafety { text-align: left; padding: 5px; border-top: 2px solid #009900; top: -25px; position: relative; }
 
-#main { position: relative; text-align: center; margin: 0px auto; width: 808px; }
+#main { position: relative; text-align: center; margin: 0px auto; width: 608px; }
 #logo { width: 578px; height: 80px; }
 		
 #paperarea { min-height: 120px; display: none; }
@@ -89,8 +89,8 @@ input[type=checkbox] { position: relative; z-index: 20; }
 		transform-origin:top left;         transform:rotate(-90deg);
 }
 #bulkarea .body { padding: 5px 0 0 0; }
-#bulkarea .format { font-style: italic; font-size: 90%; }
-#bulktextarea { font-size: 90%; width: 98%; margin: 4px 0 0 0; }
+#bulkarea .format { font-style: italic; font-size: 85%; }
+#bulktextarea { font-size: 85%; width: 98%; margin: 4px 0 0 0; }
 #brainarea .keyarea { visibility: hidden; min-height: 110px; }
 #brainview { margin-left: 5px; }
 #detailkeyarea { padding: 10px; }
@@ -203,7 +203,7 @@ input[type=checkbox] { position: relative; z-index: 20; }
 	#bulkstartindex, #paperlimit, #paperlimitperpage { width: 35px; } 
 	#bulklimit { width: 45px; }
 			
-	.footer { font-size: 90%; clear: both; width: 770px; padding: 10px 0 10px 0; margin: 50px auto auto auto; }
+	.footer { font-size: 65%; clear: both; padding: 10px 0 10px 0; margin: auto auto auto; }
 	.footer div span.item { padding: 10px; }
 	.footer .authorbtc { float: left; width: 470px; }
 	.footer .authorbtc span.item { text-align: left; display: block; padding: 0 20px; }
