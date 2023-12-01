@@ -7167,7 +7167,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         width: 17px;
         height: 17px;
         display: inline-block;
-        float: right;
         cursor: pointer;
       }
       .less {
@@ -7176,7 +7175,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         width: 17px;
         height: 17px;
         display: inline-block;
-        float: right;
       }
       a {
         position: relative;
@@ -7194,26 +7192,29 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         border-top: 2px dashed #008000;
       }
       .keyarea {
-        height: 110px;
+        height: 130px;
         text-align: left;
         position: relative;
         padding: 5px;
       }
       .keyarea .public {
         float: left;
+        display: flex;
+        flex-direction: column;
       }
       .keyarea .pubaddress {
         display: inline-block;
         height: 40px;
-        padding: 0 0 0 10px;
-        float: left;
       }
       .keyarea .privwif {
-        margin: 0;
+        margin: -20px 0px 0px 0px;
         float: right;
         text-align: right;
         padding: 0 10px 0 0;
         position: relative;
+      }
+      #wallets, .keyarea .privwif {
+        margin: 0px;
       }
       .keyarea .label {
         font-weight: bold;
@@ -7225,13 +7226,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       .keyarea .qrcode_public {
         display: inline-block;
-        float: left;
       }
       .keyarea .qrcode_private {
-        display: inline-block;
-        position: relative;
         top: 28px;
-        float: right;
       }
       .pubkeyhex {
         word-wrap: break-word;
@@ -7241,7 +7238,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			}
       body {
 				margin: 0px;
-    		overflow: hidden;
+        overflow-x: hidden;
 				font-family: Arial;
 			}
       html {
@@ -7251,11 +7248,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				position: relative;
 				min-height: 100vh;
 				display: flex;
+        flex-direction: column;
 				justify-content: center;
 				align-items: center;
+        padding-left: 300px;
 			}
 			.sidebar {
-				position: absolute;
+				position: fixed;
 				display: flex;
 				top: 0;
 				left: 0;
@@ -7292,10 +7291,52 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       .button {
         margin-left: 5px;
         margin-right: 5px;
+        background-color: #0c71b7;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      input[type=button] {
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: #0c71b7;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      input[type=button]:hover {
+        transition: all;
+        transition-duration: 0.15s;
+        background-color: #0f4a74;
       }
       input[type="checkbox"] {
         position: relative;
         z-index: 20;
+      }
+      input[type=text] {
+        padding: 2px 2px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        -webkit-transition: 0.15s;
+        transition: 0.15s;
+        outline: none;
+      }
+
+      input[type=text]:focus {
+        border: 2px solid #555;
       }
 
       #wallets {
@@ -7366,22 +7407,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       #keyarea .qrcode_public {
         float: none;
         display: block;
-        padding: 13px 11px 11px 11px;
+        padding: 13px 0px 11px 0px;
       }
       #keyarea .qrcode_private {
         float: none;
         display: block;
         top: 0;
         text-align: right;
-        padding: 13px 11px 11px 11px;
+        padding: 13px 0px 11px 0px;
       }
       #keyarea .private {
         width: 30%;
         display: table-cell;
+        padding: 13px 11px 11px 11px;
       }
       #keyarea .public {
         width: 30%;
         display: table-cell;
+        padding: 13px 11px 11px 11px;
       }
       #singlearea {
         font-size: 85%;
@@ -7408,21 +7451,24 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         text-align: left;
         padding: 5px;
         border-top: 2px solid #0c71b7;
-        top: -25px;
         position: relative;
       }
 
       #main {
         position: relative;
         text-align: center;
-        margin: 0px auto;
-        width: 608px;
+        margin: 30px auto;
+        width: 700px;
       }
       #logo {
         width: 578px;
         height: 80px;
       }
 
+      #paperkeyarea .private {
+        display: flex;
+        flex-direction: column;
+      }
       #paperarea {
         min-height: 120px;
         display: none;
@@ -7430,6 +7476,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       #paperarea .keyarea {
         border: 2px solid #0c71b7;
         border-top: 0;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
       }
       #paperarea .keyarea.art {
         display: block;
@@ -7534,6 +7583,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       }
       #bulkarea .body {
         padding: 5px 0 0 0;
+      }
+      #bulkarea .commands input[type=text] {
+        height: 35px;
       }
       #bulkarea .format {
         font-style: italic;
@@ -7687,6 +7739,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       #splitarea {
         text-align: left;
       }
+      #splitarea .commands input[type=text] {
+        height: 35px;
+      }
       #splitarea span {
         padding: 0;
       }
@@ -7790,27 +7845,31 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         .menu .tab {
           position: relative;
           display: flex;
+          align-items: center;
           border: 0px solid red;
           margin: 0;
           list-style: none;
-          z-index: 110;
+          z-index: 10;
           cursor: pointer;
           top: 1px;
           padding: 10px 40px;
           width: 100%;
 					height: 48px;
           text-align: center;
+          transition: all;
+          transition-duration: 150ms;
         }
         .menu .tab.selected {
           cursor: default;
           background-color: #fff;
-          margin: 6px 16px;
-          padding: 4px;
+          background-color: #f3f4f8;
+					border-right-width: 4px;
+					border-right-color: #0c71b7;
         }
         .menu .tab:hover {
           background-color: #f3f4f8;
-					border-right: 2px;
-					border-right-width: #0c71b7;
+					border-right-width: 4px;
+					border-right-color: #0c71b7;
         }
         .menu .tab.selected:hover {
           color: #000;
@@ -7878,6 +7937,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 					gap: 8px;
 					flex-wrap: wrap;
           padding: 2px 0;
+          margin-left: 145px;
         }
         .culturemenurow span {
           padding: 3px;
@@ -7921,8 +7981,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           position: relative;
           z-index: 20;
         }
-        #brainwarning {
-        }
         #detailcommands {
           padding: 10px 0;
         }
@@ -7954,6 +8012,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         #paperlimitperpage {
           width: 35px;
         }
+        input#paperlimit {
+          height: 36px;
+        }
         #bulklimit {
           width: 45px;
         }
@@ -7961,8 +8022,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         .footer {
           font-size: 65%;
           clear: both;
-          padding: 10px 0 10px 0;
-          margin: auto auto auto;
+          padding: 10px 40px 10px 40px;
+          width: 100%;
+          margin-top: 48px;
         }
         .footer div span.item {
           padding: 10px;
@@ -7992,6 +8054,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           font-size: 80%;
           clear: both;
           padding: 5px 0;
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+          letter-spacing: 1px;
         }
         .footer .copyright span {
           padding: 10px 2px;
@@ -8031,6 +8097,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       @media print {
         #main {
           width: auto;
+        }
+        .layout {
+          padding-left: 0px;
+        }
+        #generate {
+          width: 700px;
         }
         #singlearea {
           border: 0;
@@ -8081,6 +8153,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         .faq {
           display: none;
+        }
+        .vanityarea .expandable {
+          padding: 10px 15px;
         }
       }
     </style>
@@ -8610,6 +8685,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 									rows="2"
 									cols="68"
 									onfocus="this.select();"
+                  style="margin-top: 4px;"
 								></textarea>
 							</div>
 							<div>
@@ -8627,6 +8703,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 									rows="2"
 									cols="68"
 									onfocus="this.select();"
+                  style="margin-top: 4px;"
 								></textarea>
 							</div>
 							<div>
@@ -8723,7 +8800,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 								<label id="combinelabelentershares"
 									>Enter Available Shares (whitespace separated)</label
 								><br />
-								<textarea id="combineinput" cols="60" rows="10"></textarea><br />
+								<textarea id="combineinput" cols="60" rows="10" style="margin-top: 4px; width: 100%;"></textarea><br />
 							</span>
 							<span
 								><input
@@ -8812,6 +8889,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 									id="detailprint"
 									value="Print"
 									onclick="window.print();"
+                  style="margin-top: -12px;"
 							/></span>
 							<div class="row extra">
 								<span
@@ -8959,204 +9037,203 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 							</div>
 						</div>
 					</div>
-				</div>
-	
-				<div id="footer" class="footer">
-					<div class="tooltips">
-						<div class="tooltip" id="statuscryptogood">
-							<span class="statusgood" id="statuslabelcryptogood"
-								>&#10004; Good!</span
-							>
-							<span id="statuslabelcryptogood1"
-								>Your browser can generate cryptographically random keys using
-								window.crypto.getRandomValues</span
-							>
-							<br /><br /><input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokcryptogood"
-								onclick="document.getElementById('statuscryptogood').style.display = 'none';"
-							/>
-						</div>
-						<div class="tooltip" id="statuscryptobad">
-							<span class="statusbad" id="statuslabelcryptobad"
-								>&times; Oh no!</span
-							>
-							<span id="statuslabelcryptobad1"
-								>Your browser does NOT support window.crypto.getRandomValues. You
-								should use a more modern browser with this generator to increase
-								the security of the keys generated.</span
-							>
-							<br /><br /><input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokcryptobad"
-								onclick="document.getElementById('statuscryptobad').style.display = 'none';"
-							/>
-						</div>
-						<div class="tooltip" id="statusunittestsgood">
-							<span class="statusgood" id="statuslabelunittestsgood"
-								>&#10004; Good!</span
-							>
-							<span id="statuslabelunittestsgood1"
-								>All synchronous unit tests passed.</span
-							>
-							<br /><br /><input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokunittestsgood"
-								onclick="document.getElementById('statusunittestsgood').style.display = 'none';"
-							/>
-						</div>
-						<div class="tooltip" id="statusunittestsbad">
-							<span class="statusbad" id="statuslabelunittestsbad"
-								>&times; Oh no!</span
-							>
-							<span id="statuslabelunittestsbad1"
-								>Some synchronous unit tests DID NOT pass. You should find another
-								browser to use with this generator.</span
-							>
-							<br /><br /><input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokunittestsbad"
-								onclick="document.getElementById('statusunittestsbad').style.display = 'none';"
-							/>
-						</div>
-						<div class="tooltip" id="statusprotocolgood">
-							<span class="statusgood" id="statuslabelprotocolgood"
-								>&#10004; Good!</span
-							>
-							<span id="statuslabelprotocolgood1"
-								>You are running this generator from your local computer.
-								<br />Tip: Double check you are offline by trying
-							</span>
-							<a href="http://www.google.com" target="_blank">www.google.com</a>
-							<br /><br /><input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokprotocolgood"
-								onclick="document.getElementById('statusprotocolgood').style.display = 'none';"
-							/>
-						</div>
-						<div class="tooltip" id="statusprotocolbad">
-							<span class="statuswarn" id="statuslabelprotocolbad"
-								>&#9888; Think twice!</span
-							>
-							<span id="statuslabelprotocolbad1"
-								>You appear to be running this generator online from a live
-								website. For valuable wallets it is recommended to</span
-							>
-							<a
-								id="statuslabelprotocolbad2"
-								href="https://github.com/getlynx/PaperWallet/archive/v3.3.0.zip"
-								>download</a
-							>
-							<span id="statuslabelprotocolbad3"
-								>the zip file from GitHub and run this generator offline as a
-								local html file.</span
-							>
-							<br /><br /><input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokprotocolbad"
-								onclick="document.getElementById('statusprotocolbad').style.display = 'none';"
-							/>
-						</div>
-						<div class="tooltip" id="statuskeypoolgood">
-							<span id="statuslabelkeypool1"
-								>This is a log of all the Lynx Addresses and Private Keys you
-								generated during your current session. Reloading the page will
-								create a new session.</span
-							>
-							<textarea rows="20" cols="102" id="keypooltextarea"></textarea>
-	
-							<br /><br />
-							<input
-								type="button"
-								value="Refresh"
-								class="button"
-								id="statuskeypoolrefresh"
-								onclick="ninja.status.showKeyPool();"
-							/>
-							<input
-								type="button"
-								value="OK"
-								class="button"
-								id="statusokkeypool"
-								onclick="document.getElementById('statuskeypoolgood').style.display = 'none';"
-							/>
-						</div>
-					</div>
-	
-					<div class="authorbtc">
-						<div>
-							<span class="item">
-								<span
-									class="statusicon"
-									id="statusprotocol"
-									onclick="ninja.status.showProtocol();"
-									>...</span
-								>
-								<span
-									class="statusicon"
-									id="statuscrypto"
-									onclick="ninja.status.showCrypto();"
-									>...</span
-								>
-								<span
-									class="statusicon"
-									id="statusunittests"
-									onclick="ninja.status.showUnitTests();"
-									>...</span
-								>
-								<span
-									class="statusicon"
-									id="statuskeypool"
-									onclick="ninja.status.showKeyPool();"
-									>&#8803;</span
-								>
-							</span>
-							<span class="item" id="footerlabeltranslatedby"></span>
-							<span class="item"
-								><a
-									href="https://github.com/getlynx/PaperWallet"
-									target="_blank"
-									id="footerlabelgithub"
-									>GitHub Repository</a
-								>
-								(<a
-									href="https://github.com/getlynx/PaperWallet/archive/v3.3.0.zip"
-									target="_blank"
-									id="footerlabelgithubzip"
-									>zip</a
-								>)</span
-							>
-						</div>
-					</div>
-					<div class="authorpgp">
-						<span class="item">
-							<br />
-							<a href="CHANGELOG.txt.asc" target="_blank"
-								><span id="footerlabelversion">Version History</span> (3.3.0)</a
-							>
-						</span>
-					</div>
-					<div class="copyright">
-						<span id="footerlabelcopyright1">Copyright bitaddress.org.</span>
-						<span id="footerlabelcopyright2"
-							>JavaScript copyrights are included in the source.</span
-						>
-						<span id="footerlabelnowarranty">No warranty.</span>
-					</div>
-				</div>
+				</div>				
 			</div>
+      <div id="footer" class="footer">
+        <div class="tooltips">
+          <div class="tooltip" id="statuscryptogood">
+            <span class="statusgood" id="statuslabelcryptogood"
+              >&#10004; Good!</span
+            >
+            <span id="statuslabelcryptogood1"
+              >Your browser can generate cryptographically random keys using
+              window.crypto.getRandomValues</span
+            >
+            <br /><br /><input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokcryptogood"
+              onclick="document.getElementById('statuscryptogood').style.display = 'none';"
+            />
+          </div>
+          <div class="tooltip" id="statuscryptobad">
+            <span class="statusbad" id="statuslabelcryptobad"
+              >&times; Oh no!</span
+            >
+            <span id="statuslabelcryptobad1"
+              >Your browser does NOT support window.crypto.getRandomValues. You
+              should use a more modern browser with this generator to increase
+              the security of the keys generated.</span
+            >
+            <br /><br /><input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokcryptobad"
+              onclick="document.getElementById('statuscryptobad').style.display = 'none';"
+            />
+          </div>
+          <div class="tooltip" id="statusunittestsgood">
+            <span class="statusgood" id="statuslabelunittestsgood"
+              >&#10004; Good!</span
+            >
+            <span id="statuslabelunittestsgood1"
+              >All synchronous unit tests passed.</span
+            >
+            <br /><br /><input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokunittestsgood"
+              onclick="document.getElementById('statusunittestsgood').style.display = 'none';"
+            />
+          </div>
+          <div class="tooltip" id="statusunittestsbad">
+            <span class="statusbad" id="statuslabelunittestsbad"
+              >&times; Oh no!</span
+            >
+            <span id="statuslabelunittestsbad1"
+              >Some synchronous unit tests DID NOT pass. You should find another
+              browser to use with this generator.</span
+            >
+            <br /><br /><input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokunittestsbad"
+              onclick="document.getElementById('statusunittestsbad').style.display = 'none';"
+            />
+          </div>
+          <div class="tooltip" id="statusprotocolgood">
+            <span class="statusgood" id="statuslabelprotocolgood"
+              >&#10004; Good!</span
+            >
+            <span id="statuslabelprotocolgood1"
+              >You are running this generator from your local computer.
+              <br />Tip: Double check you are offline by trying
+            </span>
+            <a href="http://www.google.com" target="_blank">www.google.com</a>
+            <br /><br /><input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokprotocolgood"
+              onclick="document.getElementById('statusprotocolgood').style.display = 'none';"
+            />
+          </div>
+          <div class="tooltip" id="statusprotocolbad">
+            <span class="statuswarn" id="statuslabelprotocolbad"
+              >&#9888; Think twice!</span
+            >
+            <span id="statuslabelprotocolbad1"
+              >You appear to be running this generator online from a live
+              website. For valuable wallets it is recommended to</span
+            >
+            <a
+              id="statuslabelprotocolbad2"
+              href="https://github.com/getlynx/PaperWallet/archive/v3.3.0.zip"
+              >download</a
+            >
+            <span id="statuslabelprotocolbad3"
+              >the zip file from GitHub and run this generator offline as a
+              local html file.</span
+            >
+            <br /><br /><input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokprotocolbad"
+              onclick="document.getElementById('statusprotocolbad').style.display = 'none';"
+            />
+          </div>
+          <div class="tooltip" id="statuskeypoolgood">
+            <span id="statuslabelkeypool1"
+              >This is a log of all the Lynx Addresses and Private Keys you
+              generated during your current session. Reloading the page will
+              create a new session.</span
+            >
+            <textarea rows="20" cols="102" id="keypooltextarea"></textarea>
+
+            <br /><br />
+            <input
+              type="button"
+              value="Refresh"
+              class="button"
+              id="statuskeypoolrefresh"
+              onclick="ninja.status.showKeyPool();"
+            />
+            <input
+              type="button"
+              value="OK"
+              class="button"
+              id="statusokkeypool"
+              onclick="document.getElementById('statuskeypoolgood').style.display = 'none';"
+            />
+          </div>
+        </div>
+
+        <div class="authorbtc">
+          <div>
+            <span class="item">
+              <span
+                class="statusicon"
+                id="statusprotocol"
+                onclick="ninja.status.showProtocol();"
+                >...</span
+              >
+              <span
+                class="statusicon"
+                id="statuscrypto"
+                onclick="ninja.status.showCrypto();"
+                >...</span
+              >
+              <span
+                class="statusicon"
+                id="statusunittests"
+                onclick="ninja.status.showUnitTests();"
+                >...</span
+              >
+              <span
+                class="statusicon"
+                id="statuskeypool"
+                onclick="ninja.status.showKeyPool();"
+                >&#8803;</span
+              >
+            </span>
+            <span class="item" id="footerlabeltranslatedby"></span>
+            <span class="item"
+              ><a
+                href="https://github.com/getlynx/PaperWallet"
+                target="_blank"
+                id="footerlabelgithub"
+                >GitHub Repository</a
+              >
+              (<a
+                href="https://github.com/getlynx/PaperWallet/archive/v3.3.0.zip"
+                target="_blank"
+                id="footerlabelgithubzip"
+                >zip</a
+              >)</span
+            >
+          </div>
+        </div>
+        <div class="authorpgp">
+          <span class="item">
+            <br />
+            <a href="CHANGELOG.txt.asc" target="_blank"
+              ><span id="footerlabelversion">Version History</span> (3.3.0)</a
+            >
+          </span>
+        </div>
+        <div class="copyright">
+          <span id="footerlabelcopyright1">Copyright bitaddress.org.</span>
+          <span id="footerlabelcopyright2"
+            >JavaScript copyrights are included in the source.</span
+          >
+          <span id="footerlabelnowarranty">No warranty.</span>
+        </div>
+      </div>
 		</div>
 
     <script type="text/javascript">
