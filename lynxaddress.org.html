@@ -8545,92 +8545,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
               >
               <textarea rows="20" cols="88" id="bulktextarea"></textarea>
             </div>
-            <div class="faqs">
-              <div id="bulkfaq1" class="faq">
-                <div
-                  id="bulkq1"
-                  class="question"
-                  onclick="ninja.wallets.bulkwallet.openCloseFaq(1);"
-                >
-                  <span id="bulklabelq1"
-                    >Why should I use a Bulk Wallet to accept lynx on my
-                    website?</span
-                  >
-                  <div id="bulke1" class="more"></div>
-                </div>
-                <div id="bulka1" class="answer">
-                  The traditional approach to accepting lynx on your website
-                  requires that you install the official bitcoin client daemon
-                  ("bitcoind"). Many website hosting packages don't support
-                  installing the bitcoin daemon. Also, running the bitcoin
-                  daemon on your web server means your private keys are hosted
-                  on the server and could get stolen if your web server is
-                  hacked. When using a Bulk Wallet you can upload only the
-                  bitcoin addresses and not the private keys to your web server.
-                  Then you don't have to worry about your bitcoin wallet being
-                  stolen if your web server is hacked.
-                </div>
-              </div>
-              <div id="bulkfaq2" class="faq">
-                <div
-                  id="bulkq2"
-                  class="question"
-                  onclick="ninja.wallets.bulkwallet.openCloseFaq(2);"
-                >
-                  <span id="bulklabelq2"
-                    >How do I use a Bulk Wallet to accept lynx on my
-                    website?</span
-                  >
-                  <div id="bulke2" class="more"></div>
-                </div>
-                <div id="bulka2" class="answer">
-                  <ol>
-                    <li id="bulklabela2li1">
-                      Use the Bulk Wallet tab to pre-generate a large number of
-                      bitcoin addresses (10,000+). Copy and paste the generated
-                      comma separated values (CSV) list to a secure text file on
-                      your computer. Backup the file you just created to a
-                      secure location.
-                    </li>
-                    <li id="bulklabela2li2">
-                      Import the bitcoin addresses into a database table on your
-                      web server. (Don't put the wallet/private keys on your web
-                      server, otherwise you risk hackers stealing your coins.
-                      Just the bitcoin addresses as they will be shown to
-                      customers.)
-                    </li>
-                    <li id="bulklabela2li3">
-                      Provide an option on your website's shopping cart for your
-                      customer to pay in Lynx. When the customer chooses to pay
-                      in Lynx you will then display one of the addresses from
-                      your database to the customer as his "payment address" and
-                      save it with his shopping cart order.
-                    </li>
-                    <li id="bulklabela2li4">
-                      You now need to be notified when the payment arrives.
-                      Google "bitcoin payment notification" and subscribe to at
-                      least one bitcoin payment notification service. There are
-                      various services that will notify you via Web Services,
-                      API, SMS, Email, etc. Once you receive this notification,
-                      which could be programmatically automated, you can process
-                      the customer's order. To manually check if a payment has
-                      arrived you can use Block Explorer. Replace
-                      THEADDRESSGOESHERE with the bitcoin address you are
-                      checking. It could take between 10 minutes to one hour for
-                      the transaction to be confirmed.<br />http://www.blockexplorer.com/address/THEADDRESSGOESHERE<br /><br />Unconfirmed
-                      transactions can be viewed at: http://blockchain.info/
-                      <br />You should see the transaction there within 30
-                      seconds.
-                    </li>
-                    <li id="bulklabela2li5">
-                      Lynxs will safely pile up on the block chain. Use the
-                      original wallet file you generated in step 1 to spend
-                      them.
-                    </li>
-                  </ol>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div id="vanityarea" class="walletarea">
@@ -10498,22 +10412,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulklabelcsv: "Čárkou oddělené hodnoty (CSV):",
           bulklabelformat:
             "Index, Adresa, Soukromý klíč (WIF &ndash; Formát pro import do peněženky)",
-          bulklabelq1:
-            "Proč bych měl používat Hromadnou peněženku pro příjem Bitcoinů na mé stránce?",
-          bulka1:
-            'Tradiční způsob jak přijímat Bitcoiny na vaší webové stránce vyžaduje instalaci oficiálního bitcoin klienta ("bitcoind"). Mnoho webhostingových společností neumožňuje tuto instalaci provést. Také běh bitcoin démona na webovém serveru znamená, že soukromé klíče jsou uloženy na serveru a mohou být ukradeny. Pokud použijete Hromadnou peněženku, tak stačí na server nahrát pouze veřejnou bitcoin adresu a ne soukromé klíče. Poté se nemusíte bát, že vaše Bitcoiny budou ukradeny v případě napadení serveru.',
-          bulklabelq2:
-            "Jakým způsobem mohou přijímat Bitcoiny na mé stránce pomocí Hromadné peněženky?",
-          bulklabela2li1:
-            "Předgenerujte si velké množství Bitcoin adres (10 000+). Okopírujte si CSV seznam do souboru na bezpečné místo ve vašem počítači. Poté jej vyzálohujte na bezpečné místo.",
-          bulklabela2li2:
-            "Naimportujte Bitcoin adresy do databáze na vašem webovém serveru. Neimportujte soukromé klíče, abyste zabránili krádeži vašich peněz.",
-          bulklabela2li3:
-            "Umožněte na vaší stránce platbu pomocí Bitcoinu. Stačí vždy zobrazit jednu z vygenerovaných adres a uložit si ji u objednávky.",
-          bulklabela2li4:
-            'Nyní je již pouze potřeba zařídit notifikace o příchozí transakci. Zadejte do Google "bitcoin payment notification" a využijte jednu z existujících služeb. Existuje jich několik a podporují např. Web Services, API, SMS, Email, apod. Notifikaci můžete zpracovat automaticky. Pro ruční kontrolu, zda peníze přišly, stačí použít Block Explorer. Nahraďte SEMPATŘÍADRESA Bitcoin adresou, kterou chcete zkontrolovat. Potvrzení transkace může trvat od 10 minut do jedné hodiny.<br />http://www.blockexplorer.com/address/SEMPATŘÍADRESA<br /><br />Nepotvrzené tansakce je možné zkontrolovat na: http://blockchain.info/ <br />Většinou se zde zobrazí do 30 sekund.',
-          bulklabela2li5:
-            "Bitcoiny budou bezpečně převedeny v řetězci bloků. Pro spotřebování stačí kdykoliv naimportovat soubor vygenerovaný v prvním kroku.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Zadejte heslo:",
@@ -10720,22 +10618,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "Drucken",
           bulklabelcsv: "Comma Separated Values (CSV):",
           bulklabelformat: "Index, Adresse, privater Schl&uuml;ssel (WIF)",
-          bulklabelq1:
-            "Warum sollte ich ein Massen-Wallet auf meiner Webseite einsetzen?",
-          bulka1:
-            "Bisher musste immer der offizielle Bitcoin-Daemon, bitcoind, auf dem Server installiert sein, damit man Bitcoins auf seiner Webseite annehmen konnte. Viele Webhoster blockieren die Installation von bitcoind. Au&szlig;erdem m&uuml;ssen die privaten Schl&uuml;ssel auf dem Server liegen, damit bitcoind funktioniert, obwohl sie dort einfacher gestohlen werden k&ouml;nnen. Mit einem Massen-Wallet brauchst du nur noch die Bitcoin-Adressen und nicht mehr zus&auml;tzlich die privaten Schl&uuml;ssel hochladen. Dadurch musst du dir keine Sorgen mehr machen, dass dein Bitcoin-Wallet gestohlen werden k&ouml;nnte, wenn unberechtigt in deinen Server eingedrungen wird.",
-          bulklabelq2:
-            "Wie kann ich ein Massen-Wallet in meine Webseite integrieren?",
-          bulklabela2li1:
-            "Erstelle mithilfe dieser Seite ganz viele Bitcoin-Adressen (10.000+). Kopiere die CSV-Liste in eine sichere Textdatei auf deinem Computer. Fertige ein Backup dieser Datei an und speichere sie an einem sicheren Ort.",
-          bulklabela2li2:
-            "Importiere die Bitcoin-Adressen in eine Datenbank auf deinem Server. (Lege nur die Bitcoin-Adressen, nicht aber die privaten Schl&uuml;ssel auf deinem Server ab!)",
-          bulklabela2li3:
-            "Biete deinen Kunden auf deiner Webseite Bitcoin als Zahlungsm&ouml;glichkeit an. Wenn ein Kunde mit Bitcoin zahlen m&ouml;chte, zeige ihm eine der Adressen aus deiner Datenbank als Zahlungsadresse an und speichere sie mit seiner Bestellung.",
-          bulklabela2li4:
-            'Jetzt musst du dir den Zahlungseingang best&auml;tigen lassen. Google "bitcoin payment notification" und melde dich bei mindestens einem solchen Anbieter an. Es gibt verschiedene Anbieter, die dich via Web, API, SMS, E-Mail etc. &uuml;ber erfolgte Transaktionen informieren k&ouml;nnen. Sobald du die Eingangsbest&auml;tigung erh&auml;lst, kannst du automatisch die Bestellung abwickeln lassen. Um selber zu schauen, ob eine Zahlung erfolgt ist, kannst du Block Explorer nutzen. Ersetze BITCOINADRESSE durch die Bitcoin-Adresse, die du pr&uuml;fen m&ouml;chtest. Es dauert von zehn Minuten bis zu einer Stunde, um Transaktionen zu best&auml;tigen. <br />http://www.blockexplorer.com/address/BITCOINADRESSE<br /> <br />Unbest&auml;tigte Transaktionen findest du hier: http://blockchain.info/ <br /> S&auml;mtliche Transaktionen sollten dort innerhalb von 30 Sekunden auftauchen.',
-          bulklabela2li5:
-            "Deine Bitcoins werden sicher in die Block-Chain aufgenommen. Mithilfe des urspr&uuml;nglichen Wallets vom ersten Schritt kannst du sie ausgeben.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Passphrase eingeben:",
@@ -10947,22 +10829,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "Εκτύπωση",
           bulklabelcsv: "Τιμές που χωρίζονται με κόμμα (CSV):",
           bulklabelformat: "Δείκτης,Διεύθυνση,Προσωπικό Κλειδί (WIF)",
-          bulklabelq1:
-            "Γιατί να χρησιμοποιήσω Πολλαπλά Πορτοφόλια στην ιστοσελίδα μου;",
-          bulka1:
-            'Ο παραδοσιακός τρόπος για να δέχεστε bitcoins στην ιστοσελίδα σας, απαιτεί την εγκατάσταση και λειτουργία του επίσημου δαίμονα πελάτη bitcoin ("bitcoind"). Αρκετά πακέτα φιλοξενίας δεν υποστηρίζουν την εγκατάστασή του. Επιπλέον, η εκτέλεση του πελάτη bitcoin στον web server σας συνεπάγεται και τη φιλοξενία των προσωπικών σας κλειδιών στον ίδιο server, τα οποία μπορεί να υποκλαπούν αν ο server πέσει θύμα επίθεσης. Χρησιμοποιώντας τα Πολλαπλά Πορτοφόλια, ανεβάζετε στον server σας μόνο τις διευθύνσεις Bitcoin κι όχι τα προσωπικά κλειδιά. Με αυτό τον τρόπο δεν χρειάζεται να ανησυχείτε μήπως υποκλαπεί το πορτοφόλι σας.',
-          bulklabelq2:
-            "Πως χρησιμοποιώ τα Πολλαπλά Πορτοφόλια για να δέχομαι bitcoins στην ιστοσελίδα μου;",
-          bulklabela2li1:
-            "Χρησιμοποιήστε την καρτέλα Πολλαπλά Πορτοφόλια για να δημιουργήσετε έναν μεγάλο αριθμό διευθύνσεων Bitcoin (10.000+). Αντιγράψτε κι επικολλήστε τη λίστα των χωρισμένων με κόμμα τιμών (CSV) που δημιουργήθηκαν, σε ένα ασφαλές αρχείο στον υπολογιστή σας. Αντιγράψτε το αρχείο που δημιουργήσατε σε μια ασφαλή τοποθεσία.",
-          bulklabela2li2:
-            "Εισάγετε τις διευθύνσεις Bitcoin σε έναν πίνακα βάσης δεδομένων στον web server σας. (Μην αντιγράψετε τα προσωπικά κλειδιά ή το πορτοφόλι στον web server γιατί διακινδυνεύετε να σας τα κλέψουν. Μόνο τις διευθύνσεις Bitcoin που θα εμφανίζονται στους πελάτες.)",
-          bulklabela2li3:
-            "Παρέχετε στο καλάθι αγορών σας μια επιλογή για πληρωμή σε Bitcoin. Όταν ο πελάτης επιλέγει να πληρώσει με Bitcoin, θα εμφανίσετε σε αυτόν μια από τις διευθύνσεις από τη βάση δεδομένων, ως την «προσωπική του διεύθυνση πληρωμής» την οποία θα αποθηκεύσετε μαζί με την εντολή αγοράς.",
-          bulklabela2li4:
-            "Τώρα χρειάζεται να ειδοποιηθείτε μόλις γίνει η πληρωμή. Ψάξτε στο Google για «bitcoin payment notification» κι εγγραφείτε σε τουλάχιστο μία υπηρεσία ειδοποίησης πληρωμής. Υπάρχουν διάφορες υπηρεσίες που θα σας ειδοποιήσουν με Web υπηρεσίες, API, SMS, Email, κλπ. Όταν λάβετε την ειδοποίηση, η οποία μπορεί να αυτοματοποιηθεί προγραμματιστικά, εκτελείτε την εντολή του πελάτη. Για να ελέγξετε χειροκίνητα την πληρωμή μπορείτε να χρησιμοποιήσετε τον Block Explorer. Αντικαταστήστε το THEADDRESSGOESHERE με τη Bitcoin διεύθυνσή σας. Η επιβεβαίωση της πληρωμής ενδέχεται να διαρκέσει από δέκα λεπτά έως μία ώρα.<br />http://www.blockexplorer.com/address/THEADDRESSGOESHERE<br /><br />Μπορείτε να δείτε τις συναλλαγές που δεν έχουν επιβεβαιωθεί στο: http://blockchain.info/ <br />Θα πρέπει να δείτε τη συναλλαγή εκεί εντός 30 δευτερολέπτων.",
-          bulklabela2li5:
-            "Τα Bitcoins θα συσσωρεύονται με ασφάλεια στην αλυσίδα των μπλοκ. Χρησιμοποιήστε το αρχικό πορτοφόλι που δημιουργήσατε στο βήμα 1 για να τα ξοδέψετε.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Εισάγετε κωδικό: ",
@@ -11170,22 +11036,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulklabelcsv: "Valores separados por coma:",
           bulklabelformat:
             "Índice,Dirección,Clave privada (formato para importar)",
-          bulklabelq1:
-            '¿Por qué debo usar "Direcciones en masa" para aceptar Bitcoins en mi web?',
-          bulka1:
-            'La forma tradicional de aceptar bitcoins en tu web requiere tener instalado el cliente oficial de bitcoin ("bitcoind"). Sin embargo muchos servicios de hosting no permiten instalar dicho cliente. Además, ejecutar el cliente en tu servidor supone que las claves privadas están también en el servidor y podrían ser comprometidas en caso de intrusión. Al usar este mecanismo, puedes subir al servidor sólo las dirección de bitcoin y no las claves privadas. De esta forma no te tienes que preocupar de que alguien robe la cartera si se cuelan en el servidor.',
-          bulklabelq2:
-            '¿Cómo uso "Direcciones en masa" para aceptar bitcoins en mi web?',
-          bulklabela2li1:
-            'Usa el tab "Direcciones en masa" para generar por anticipado muchas direcciones (más de 10000). Copia y pega la lista de valores separados por comas (CSV) a un archivo de texto seguro (cifrado) en tu ordenador. Guarda una copia de seguridad en algún lugar seguro.',
-          bulklabela2li2:
-            "Importa las direcciones en la base de datos de tu servidor. No subas la cartera ni las claves públicas, o de lo contrario te lo pueden robar. Sube sólo las direcciones, ya que es lo que se va a mostrar a los clientes.",
-          bulklabela2li3:
-            'Ofrece una alternativa en el carro de la compra de tu web para que los clientes paguen con Bitcoin. Cuando el cliente elija pagar con Bitcoin, les muestras una de las direcciones de la base de datos como su "dirección de pago" y guardas esto junto con el pedido.',
-          bulklabela2li4:
-            'Ahora te hace falta recibir una notificación del pago. Busca en google "notificación de pagos bitcoin" (o "bitcoin payment notification" en inglés) y suscríbete a alguno de los servicios que aparezcan. Hay varios de ellos, que te pueden notificar vía Web services, API, SMS, email, etc. Una vez te llegue la notificación, lo cual puede ser automatizado, entonces ya puedes procesar el pedido. Para comprobar a mano si has recibido un pago, puedes usar Block Explorer: reemplaza DIRECCION a continuación por la dirección que estés comprobando. La transacción puede tardar entre 10 minutos y una hora en ser confirmada. <br />http://www.blockexplorer.com/address/DIRECCION<br /><br />Puedes ver las transacciones sin confirmar en: http://blockchain.info/ <br />Las transacciones sin confirmar suelen aparecer ahí en unos 30 segundos.',
-          bulklabela2li5:
-            "Las bitcoins que recibas se almacenarán de forma segura en la cadena de bloques. Usa la cartera original que generaste en el paso 1 para usarlas.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Contraseña:",
@@ -11392,22 +11242,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "Imprimer",
           bulklabelcsv: "Valeurs Séparées Par Des Virgules (CSV):",
           bulklabelformat: "Index,Adresse,Clé Privée (WIF)",
-          bulklabelq1:
-            "Pourquoi utiliserais-je un Porte-monnaie en vrac pour accepter les Bitcoins sur mon site web?",
-          bulka1:
-            "L'approche traditionnelle pour accepter des Bitcoins sur votre site web requière l'installation du logiciel Bitcoin officiel (\"bitcoind\"). Plusieurs hébergeurs ne supportent pas l'installation du logiciel Bitcoin. De plus, faire fonctionner le logiciel Bitcoin sur votre serveur web signifie que vos clés privées sont hébergées sur le serveur et pourraient donc être volées si votre serveur web était compromis. En utilisant un Porte-monnaie en vrac, vous pouvez publiquer seulement les adresses Bitcoin sur votre serveur et non les clés privées. Vous n'avez alors pas à vous inquiéter du risque de vous faire voler votre porte-monnaie si votre serveur était compromis.",
-          bulklabelq2:
-            "Comment utiliser le Porte-monnaie en vrac pour utiliser le Bitcoin sur mon site web?",
-          bulklabela2li1:
-            "Utilisez le Porte-monnaie en vrac pour pré-générer une large quantité d'adresses Bitcoin (10,000+). Copiez collez les données séparées par des virgules (CSV) dans un fichier texte sécurisé dans votre ordinateur. Sauvegardez ce fichier dans un endroit sécurisé.",
-          bulklabela2li2:
-            "Importez les adresses Bitcoin dans une base de donnée sur votre serveur web. (N'ajoutez pas le porte-monnaie ou les clés privées sur votre serveur web, sinon vous courrez le risque de vous faire voler si votre serveur est compromis. Ajoutez seulement les adresses Bitcoin qui seront visibles à vos visiteurs.)",
-          bulklabela2li3:
-            'Ajoutez une option dans votre panier en ligne pour que vos clients puissent vous payer en Bitcoin. Quand un client choisi de vous payer en Bitcoin, vous pouvez afficher une des adresses de votre base de donnée comme "adresse de paiment" pour votre client et sauvegarder cette adresse avec sa commande.',
-          bulklabela2li4:
-            "Vous avez maintenant besoin d'être avisé quand le paiement est reçu. Cherchez \"bitcoin payment notification\" sur Google et inscrivez-vous à un service de notification de paiement Bitcoin. Il y a plusieurs services qui vous avertiront via des services Web, API, SMS, Email, etc. Une fois que vous avez reçu la notification, qui devrait être programmée automatiquement, vous pouvez traiter la commande de votre client. Pour vérifier manuellement si un paiement est arrivé, vous pouvez utiliser Block Explorer. Remplacez ADRESSE par l'adresse Bitcoin que vous souhaitez vérifier. La confirmation de la transaction pourrait prendre de 10 à 60 minutes pour être confirmée.<br />http://www.blockexplorer.com/address/ADRESSE<br /><br />Les transactions non confirmées peuvent être visualisées ici: http://blockchain.info/ <br />Vous devriez voir la transaction à l'intérieur de 30 secondes.",
-          bulklabela2li5:
-            "Les Bitcoins vos s'accumuler de façon sécuritaire dans la chaîne de blocs. Utilisez le porte-monnaie original que vous avez généré à l'étape 1 pour les dépenser.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Entrez votre mot de passe: ",
@@ -11611,22 +11445,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "Nyomtatás",
           bulklabelcsv: "Vesszővel elválasztott értékek (CSV):",
           bulklabelformat: "Index, Cím, Privát cím (WIF)",
-          bulklabelq1:
-            "Miért jó a Tömeges pénztárca használata, ha Ön bitcoint szeretne elfogadni a web-en?",
-          bulka1:
-            'Ha Ön bitcoint szeretne elfogadni a web-en, akkor a szokásos megoldás az, hogy installálja a hivatalos bitcoin kliens démont ("bitcoind"). Sok web szolgáltató nem támogatja a bitcoin démon installálását. Ráadásul, ha a bitcoin démont a web szerveren futtatja, akkor a privát kulcsai is a web szerveren lesznek tárolva, és a web szerver meghekkelésekor ellophatják őket. A Tömeges pénztárca használatakor csak a bitcoin címeket kell feltölteni a web szerverre, a privát kulcsokat nem. Így nem kell aggódnia, hogy ellopják a bitcoin pénztárcáját, ha betörnek a web szerverre.',
-          bulklabelq2:
-            "Hogyan használható a Tömeges pénztárca az Ön web helyén bitcoin elfogadásra?",
-          bulklabela2li1:
-            "A Tömeges pénztárcával állítson elő nagy mennyiségű (10,000+) bitcoin címet. Másolja át a vesszővel elválasztott adatokat (CSV) egy biztonságos szöveges állományba a számítógépére. A szöveges állományról készítsen mentést, és azt őrizze biztonságos környezetben.",
-          bulklabela2li2:
-            "Importálja be a Bitcoin címeket a web szerverén futó adatbázisba. (A pénztárca privát kulcsait ne importája be, mert ezzel azt kockáztatja, hogy a hackerek ellopják a pénzét. Csak a bitcoin címeket importálja be, úgy, ahogy azt a ügyfelei látják majd.)",
-          bulklabela2li3:
-            'Web helyének vásárlókosarába vegye fel a bitcoinnal történő fizetés lehetőségét. Ha egy ügyfél bitcoinnal kíván fizetni, akkor "fizetési címként" az adatbázis egyik címét jelenítse meg, és a megrendelés mellett ezt a címet tárolja.',
-          bulklabela2li4:
-            'Most szüksége van arra, hogy értesítést kapjon, ha megérkezett a pénz. A Google-on keressen rá a "bitcoin payment notification" kifejezésre, és iratkozzon föl valamelyik szolgáltatóhoz, amely értesítést küld, ha bizonyos címekre Bitcoint küldtek. Számos ilyen szolgáltató van, amelyik Web szervíz, API, SMS, Email, stb. segítségével értesítést küld. Amint megérkezik az értesítés, amelynek automatikus figyelése beprogramozható, máris megkezdheti az ügyfél megrendelésének feldolgozását. Ha manuálisan szeretné ellenőrizni, hogy érkezett-e valamelyik címre pénz, akkor a Block Explorer-t használhatja. A CÍM helyébe írja azt a Bitcoin címet, amelyet ellenőrizni szeretne. A tranzakció megerősítéséhez 10 és 60 perc közötti időre van szükség.<br />http://www.blockexplorer.com/address/CÍM<br /><br />A megerősítetlen tranzakciókat itt lehet megnézni: http://blockchain.info/ <br />A tranzakció 30 másodpercen belül megjelenik.',
-          bulklabela2li5:
-            "Az Ön bitcoinjai biztonságos módon gyűlnek a blokkláncon. Használja az 1. lépés során előállított eredeti pénztárcát, ha szeretné őket elkölteni.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Adja be a jelmondatot: ",
@@ -11845,22 +11663,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "Stampa",
           bulklabelcsv: "Valori Separati da virgola:",
           bulklabelformat: "Indice,Indirizzo,Chiave Privata (WIF)",
-          bulklabelq1:
-            "Perché dovrei usare tanti portafogli per accettare Bitcoin sul mio sito web?",
-          bulka1:
-            "Il tradizionale approcio per accettare i Bitcoin è quello di installare il demone ufficiale Bitcoin (\"bitcoind\"). Molti pacchetti di hosting web non supportano l'installazione di tale demone. Inoltre tenere in esecuzione il demone richiede che la chiave privata del portafogli sia custodita sul server, se questo viene violato tramite hacking puoi perdere tutti i Bitcoin. Usando portafogli multipli puoi caricare sul server solo l'indirizzo per il versamento e non la chiave privata. Quindi non devi preoccuparti del tuo portafogli nel caso in cui il server venga violato con un attacco di hacking.",
-          bulklabelq2:
-            "Come utilizzo tutti questi portafogli per accettare Bitcoin sul mio sito web?",
-          bulklabela2li1:
-            'Usa la funzione "Portafogli multipli" per generare una grande quantità di indirizzi Bitcoin (10,000+). Copia e incolla la lista generata in formato CSV (campi separati da virgola) su un file, al sicuro nel tuo computer. Fai una copia di backup di questo file e mettilo un posto sicuro.',
-          bulklabela2li2:
-            "Importa gli indirizzi Bitcoin in una tabella del database sul tuo web server. (Non importare i portafogli/chiavi private sul web server, altrimenti corri il rischio che rubino i tuoi Bitcoin con l'hacking. Usa gli indirizzi Bitcoin così come verranno mostrati ai tuoi clienti.)",
-          bulklabela2li3:
-            'Fornisci una opzione nel carrello del tuo sito web per pagare in Bitcoin. Quando il cliente sceglie di pagare in Bitcoin, gli mostrerai un indirizzo dal tuo database come "indirizzo di pagamento" e conserverai questo stesso indirizzo insieme ai dati dell\'ordine.',
-          bulklabela2li4:
-            "Ora hai bisogno di notificare l'arrivo del pagamento. Cerca su Google \"notifiche pagamento Bitcoin\" ed iscriviti ad almeno un servizio di notifica. Esistono diversi servizi che possono notificare in vari modi come Web Services, API, SMS, Email, etc. Una volta ricevuta la notifica, la quale può essere automatizzata con la programmazione, puoi processare l'ordine del cliente. Per verificare manualmente se l'ordine è davvero arrivato puoi usare un block explorer. Sostituisci INDIRIZZODACONTROLLARE con l'indirizzo Bitcoin da controllare. Possono volerci dai 10 fino a 60 minuti per fare in modo che una transazione venga confermata.<br>http://www.blockexplorer.com/address/INDIRIZZODACONTROLLARE<br><br>Le transazioni non confermate possono essere visionate su: http://blockchain.info/ <br>Dovresti vedere la transazione entro 30 secondi.",
-          bulklabela2li5:
-            "In questo modo i Bitcoin transiteranno nella blockchain in tutta sicurezza. Usa il portafogli creato nel Passo 1 per spendere i Bitcoin.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Inserisci la Passphrase: ",
@@ -12062,22 +11864,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "印刷",
           bulklabelcsv: "カンマ区切り値",
           bulklabelformat: "番号、アドレス、プライベートキー(WIF形式)",
-          bulklabelq1:
-            "ウェブサイトでビットコインを受け付ける時、何故大量のアドレスを生成しておいた方がいいのか？",
-          bulka1:
-            "以前はビットコインをサイトで受け付けたかったら、「bitcoind」というビットコインのシステムサービスをサーバーにアップロードし、サーバー上で実行しなければいけませんでした。しかし、このやり方だとサーバーがハッキングされてしまった場合、プライベートキーも全て持って行かれてしまいます。大量に生成しておいて、ビットコインアドレスだけをサーバーにアップしておけば、プライベートキーを安全な場所に保管できます。",
-          bulklabelq2:
-            "どうやって大量生成を使ってサイトでビットコインを受け付けられるようにできるのか？",
-          bulklabela2li1:
-            "大量生成タブで大量のビットコインを生成(10,000+でも可)。出てくるCSVテキストをコピーして、安全なテキストエディターで貼り付けて、安全な場所に保存しておいて下さい。一つバックアップを取り、別の場所で保管しておく(強いパスワードのかかったzipなどで)",
-          bulklabela2li2:
-            "ビットコインアドレスをウェブサーバーにアップロード。プライベートキーはアップロードしないで下さい。ユーザーに見せたい宛先用のアドレスのみをアップロードして下さい。",
-          bulklabela2li3:
-            "サイトのショッピングカート機能にビットコインのリンクを追加して下さい。クリックされた時、お値段と先ほどアップしたビットコインアドレスが順番に出てくるようにしておいて下さい(1取引1アドレス)。注文の情報と一緒に、このアドレスも一緒に保存して、後で紐付けられるようにしておいて下さい。",
-          bulklabela2li4:
-            "後は支払いの通知を受けないと注文を通すか否か分かりません。グーグルで「bitcoin payment notification」と検索したら、SMS、メール、APIなどでビットコインの支払いがあった際教えてくれます。これをコードの中に組み込んで、支払いがあったら注文を通すようにもできます。手動で送金があったかを見る場合、blockchain.infoに行き、宛先のアドレスを入力すれば、取引履歴から送金の事実を確認できます。大体送金の30秒後に表示され、10分～1時間の間に「確認」されます。",
-          bulklabela2li5:
-            "送られたビットコインはブロックチェーンにて安全に保管されます。送金するには1番で作成したウォレットを何らかのビットコインソフトに取り込んでご利用下さい。",
 
           // brain wallet html
           brainlabelenterpassphrase: "パスワード",
@@ -12292,22 +12078,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulklabelcsv: "Valores separados por vírgula:",
           bulklabelformat:
             "Índice,Endereço,Chave privada (formato para importar)",
-          bulklabelq1:
-            '¿Por qué debo usar "Direcciones en masa" para aceptar Bitcoins en mi web?',
-          bulka1:
-            'La forma tradicional de aceptar bitcoins en tu web requiere tener instalado el cliente oficial de bitcoin ("bitcoind"). Sin embargo muchos servicios de hosting no permiten instalar dicho cliente. Además, ejecutar el cliente en tu servidor supone que las claves privadas están también en el servidor y podrían ser comprometidas en caso de intrusión. Al usar este mecanismo, puedes subir al servidor sólo las dirección de bitcoin y no las claves privadas. De esta forma no te tienes que preocupar de que alguien robe la cartera si se cuelan en el servidor.',
-          bulklabelq2:
-            '¿Cómo uso "Direcciones en masa" para aceptar bitcoins en mi web?',
-          bulklabela2li1:
-            'Usa el tab "Direcciones en masa" para generar por anticipado muchas direcciones (más de 10000). Copia y pega la lista de valores separados por comas (CSV) a un archivo de texto seguro (cifrado) en tu ordenador. Guarda una copia de seguridad en algún lugar seguro.',
-          bulklabela2li2:
-            "Importa las direcciones en la base de datos de tu servidor. No subas la cartera ni las claves públicas, o de lo contrario te lo pueden robar. Sube sólo las direcciones, ya que es lo que se va a mostrar a los clientes.",
-          bulklabela2li3:
-            'Ofrece una alternativa en el carro de la compra de tu web para que los clientes paguen con Bitcoin. Cuando el cliente elija pagar con Bitcoin, les muestras una de las direcciones de la base de datos como su "dirección de pago" y guardas esto junto con el pedido.',
-          bulklabela2li4:
-            'Ahora te hace falta recibir una notificación del pago. Busca en google "notificación de pagos bitcoin" (o "bitcoin payment notification" en inglés) y suscríbete a alguno de los servicios que aparezcan. Hay varios de ellos, que te pueden notificar vía Web services, API, SMS, email, etc. Una vez te llegue la notificación, lo cual puede ser automatizado, entonces ya puedes procesar el pedido. Para comprobar a mano si has recibido un pago, puedes usar Block Explorer: reemplaza DIRECCION a continuación por la dirección que estés comprobando. La transacción puede tardar entre 10 minutos y una hora en ser confirmada. <br />http://www.blockexplorer.com/address/DIRECCION<br /><br />Puedes ver las transacciones sin confirmar en: http://blockchain.info/ <br />Las transacciones sin confirmar suelen aparecer ahí en unos 30 segundos.',
-          bulklabela2li5:
-            "Las bitcoins que recibas se almacenarán de forma segura en la cadena de bloques. Usa la cartera original que generaste en el paso 1 para usarlas.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Senha:",
@@ -12515,22 +12285,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "Распечатать",
           bulklabelcsv: "Значения разделенные запятой:",
           bulklabelformat: "Порядковый номер, Адрес, Приватный Ключ (импорт)",
-          bulklabelq1:
-            "Почему нужно использовать несколько кошельков, чтобы принимать биткоины на Вашем сайте?",
-          bulka1:
-            "Традиционный подход к приему биткоинов на Вашем сайте - это установка оффициального демона клиента Биткоин ('bitcoind'). Большинство хостингов для вебсайтов не поддерживают установку демона Биткоин. Также, запуск демона клиента Биткоин на Вашем веб-сервере означает, что Вы храните приватные ключи на этом сервере и они могут быть украдены, если Ваш веб-сервер подвергнется взлому. При использовании нескольких кошельков Вы можете выгрузить только адреса Биткоин на Ваш сервер, в то время как приватные ключи останутся в секрете. В этом случае Вам не следует беспокоиться того, что Ваш веб-сервер будет взломан и биткоин кошелек будет украден.",
-          bulklabelq2:
-            "Как использовать несколько кошельков, чтобы принимать биткоины на Вашем сайте?",
-          bulklabela2li1:
-            "Используйте вкладку 'Несколько кошельков', для того чтобы сгенерировать большое количество адресов Биткоин (10.000+). Скопируйте и вставьте сгенерированные идентификаторы в виде списка (в формате CSV) в секретный файл на вашем компьютере. Сделайте резервную копию созданного файла и сохраните ее в надежном месте. ",
-          bulklabela2li2:
-            "Импортируйте биткоин адреса в базу данных или иное хранилище Вашего веб-сервера. (Не размещайте приватные ключи кошелька на Вашем веб-сервере, в противном случае Вы рискуете потерять свои биткоины. Своим клиентам Вам достаточно предоставить Биткоин адрес.)",
-          bulklabela2li3:
-            "Добавьте опцию для оплаты заказа из корзины Вашего клиента для оплаты Биткоинами. Если клиент выбирает оплату Биткоинами - предоставьте ему информацию о Биткоин адресе для приема оплаты, который будет закреплен за этим клиентом и сохраните соответствующим образом заказ.",
-          bulklabela2li4:
-            "Вам необходимо получать информацию о получении оплаты. Загуглите 'нотификации об оплате биткоинами' и подпишитесь на какой-нибудь сервис нотификаций. В интернете можно найти множество сервисов дял получения нотификаций через веб-сервисы, api, смс, электронную почту и т.д. Как только Вы получите нотификацию об оплате, которую можно обрабатывать в автоматическом режиме, Вы можете приступить к подготовке заказа для Вашего клиента. Чтобы вручную проверить статус оплаты воспользуйтесь сервисом Block Explorer. Заменить АДРЕС на Ваш адрес Биткоин, который Вы хотите проверить. Подтверждение транзакции оплаты может занимать от 10 минут до одного часа. http://www.blockexplorer.com/address/АДРЕС\n\nНеподтвержденные транзации оплаты можно посмотреть на: http://blockchain.info/\nНеподтвержденная транзакция будет отображаться через 30 секунд.",
-          bulklabela2li5:
-            "Биткоины накапливаются в цепочке блоков. Используйте оригинальный файл сгенерированный на 1 шаге, чтобы потратить их.",
 
           // brain wallet html
           brainlabelenterpassphrase: "Парольная фраза:",
@@ -12722,20 +12476,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           bulkprint: "打印",
           bulklabelcsv: "逗号分隔值：",
           bulklabelformat: "编号,地址,私钥(WIF格式)",
-          bulklabelq1: "什么时候我会需要批量钱包？",
-          bulka1:
-            "例如，当你建设一个比特币收款网站，需要分别为每一个用户准备一个收款地址时，传统的做法是使用比特币客户端“bitcoind”生成大量的地址，但是不一定所有的网站托管都支持它。另外，你在服务器上运行比特币客户端，也就意味着你的私钥也会保存在服务器上，当骇客攻破服务器时，你的比特币可能会被盗。使用批量钱包一次生成大量的钱包，只把生成的地址放在服务器上，即使服务器被攻破，也不必担心比特币的安全。",
-          bulklabelq2: "我该怎样在我的网站上使用批量钱包接受比特币？",
-          bulklabela2li1:
-            "    在批量钱包选项卡预生成大量比特币地址（比如，一万个）。把生成的逗号分隔值清单（CSV）复制到一个安全的环境中，注意备份。",
-          bulklabela2li2:
-            "    把地址列表导入到Web服务器上（注意，<b>不要</b>把私钥部分也一并导入，否则会有被盗的危险）",
-          bulklabela2li3:
-            "    为你的客户提供一个比特币支付的接口。每当一名客户选择使用比特币支付，你就从你的数据库中提取一个地址，作为该客户专用的“付款地址”，并保存订单信息。",
-          bulklabela2li4:
-            "接下来你需要一个收款通知，联系相关服务的供应商（谷歌搜索“bitcoin payment notification”），它们可以监视指定地址的资金变动，并通过WebAPI、短信、电邮或者其他方式来提醒你，你也可以通过编程使一切自动化。在http://www.blockexplorer.com/address/地址 或者 https://blockchain.info/address/地址 查看交易确认数。通常情况下，你能够在30秒之内看见交易，而根据你对安全的要求不同，你可能需要10分钟到1小时的时间等待交易确认。",
-          bulklabela2li5:
-            "比特币在区块链上稳定之后，你就可以使用在第一步中生成的私钥来花费它们。",
 
           // brain wallet html
           brainlabelenterpassphrase: "口令",
